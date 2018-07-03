@@ -1,0 +1,7 @@
+tmp
+vendor
+templates_c
+app/src/main/assets/www
+.gradle
+build
+local.properties

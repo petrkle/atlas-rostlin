@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.0"
+    defaultConfig {
+        applicationId "cz.kle.atlasrostlin"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+				setProperty("archivesBaseName", "Atlas-rostlin-$versionName")
+    }
+		signingConfigs {
+        release
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+						signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+		implementation 'com.android.support:appcompat-v7:27.1.1'
+}
+
+
+task generate(type: Exec) {
+    commandLine 'php', './web2app.php'
+		workingDir '..'
+}
+
+preBuild.dependsOn(generate)
+
+def props = new Properties()
+
+props.load(new FileInputStream("${System.env.HOME}/android-sec/atlasrostlin.properties"))
+
+android.signingConfigs.release.storeFile rootProject.file(props.keyStore)
+
+android.signingConfigs.release.storePassword props.keyStorePassword
+
+android.signingConfigs.release.keyAlias props.keyAlias
+
+android.signingConfigs.release.keyPassword props.keyAliasPassword
