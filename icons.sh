@@ -12,6 +12,9 @@ icon[192]='xxxhdpi'
 
 for foo in "${!icon[@]}"
 do
-	convert -resize ${foo}x${foo} kytka.png ${RES}-${icon[$foo]}/ic_launcher.png
-	convert -resize ${foo}x${foo} kytka.png ${RES}-${icon[$foo]}/ic_launcher_round.png
+	OUT="${RES}-${icon[$foo]}"
+	ICO="ic_launcher"
+	[ -d ${OUT} ] || mkdir -p ${OUT}
+	[ -f ${OUT}/${ICO}.png ] || convert -resize ${foo}x${foo} kytka.png ${OUT}/${ICO}.png
+	[ -f ${OUT}/${ICO}_round.png ] || cp ${OUT}/${ICO}.png ${OUT}/${ICO}_round.png
 done

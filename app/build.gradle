@@ -28,11 +28,36 @@ dependencies {
 		implementation 'com.android.support:appcompat-v7:27.1.1'
 }
 
-
-task generate(type: Exec) {
-    commandLine 'php', './web2app.php'
+task generate(type: Exec, dependsOn: ['composer', 'generateIcons', 'stahni']) {
+    commandLine 'php', 'web2app.php'
 		workingDir '..'
 }
+
+task stahni(type: Exec) {
+    commandLine 'php', 'stahni.php'
+		workingDir '..'
+}
+
+task composer(type: Exec) {
+    commandLine 'composer', 'install'
+		workingDir '..'
+}
+
+task generateIcons(type: Exec) {
+    commandLine 'bash', './icons.sh'
+		workingDir '..'
+}
+
+task customClean(type: Delete) {
+    delete "${projectDir}/../templates_c"
+    delete "${projectDir}/../vendor"
+		delete "src/main/res/mipmap-hdpi"
+		delete "src/main/res/mipmap-mdpi"
+		delete "src/main/res/mipmap-xhdpi"
+		delete "src/main/res/mipmap-xxhdpi"
+		delete "src/main/res/mipmap-xxxhdpi"
+}
+clean.dependsOn customClean
 
 preBuild.dependsOn(generate)
 
