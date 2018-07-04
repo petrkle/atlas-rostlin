@@ -95,5 +95,11 @@ function asciize($str) {
 function sort_by_jmeno($a, $b)
 {
 	$coll = collator_create( 'cs_CZ.UTF-8' );
+	return collator_compare($coll, $a['jmeno'], $b['jmeno']);
+}
+
+function sort_by_nazev($a, $b)
+{
+	$coll = collator_create( 'cs_CZ.UTF-8' );
 	return collator_compare($coll, $a['nazev'], $b['nazev']);
 }

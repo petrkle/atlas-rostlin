@@ -24,10 +24,10 @@ foreach(glob(TMP.'/*.html') as $file){
 		if(!isset($celedi[$id])){
 			$celedi[$id] = array(
 				'nazev' => $foo['celed'],
-				'clenove' => array($foo['id']),
+				'clenove' => array($foo),
 			);
 		}else{
-			array_push($celedi[$id]['clenove'], $foo['id']);
+			array_push($celedi[$id]['clenove'], $foo);
 		}
 	}
 
@@ -36,10 +36,10 @@ foreach(glob(TMP.'/*.html') as $file){
 		if(!isset($tridy[$id])){
 			$tridy[$id] = array(
 				'nazev' => $foo['trida'],
-				'clenove' => array($foo['id']),
+				'clenove' => array($foo),
 			);
 		}else{
-			array_push($tridy[$id]['clenove'], $foo['id']);
+			array_push($tridy[$id]['clenove'], $foo);
 		}
 	}
 
@@ -58,9 +58,10 @@ foreach(glob(TMP.'/*.html') as $file){
 
 $smarty->assign('kytky', $kytky);
 
-uasort($celedi, 'sort_by_jmeno');
+uasort($celedi, 'sort_by_nazev');
 
 foreach($celedi as $id => $celed){
+	uasort($celed['clenove'], 'sort_by_jmeno');
 	$smarty->assign('title', $celed['nazev']);
 	$smarty->assign('celed', $celed);
 	$smarty->assign('celedid', $id);
@@ -72,6 +73,7 @@ foreach($celedi as $id => $celed){
 }
 
 foreach($tridy as $id => $trida){
+	uasort($trida['clenove'], 'sort_by_jmeno');
 	$smarty->assign('title', $trida['nazev']);
 	$smarty->assign('trida', $trida);
 	$smarty->assign('tridaid', $id);
