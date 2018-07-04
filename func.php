@@ -26,6 +26,7 @@ function get_detail_links($filename){
 
 function savefile($url, $filename){
 	if(!is_file($filename)){
+		print "$url\n";
 		if(!is_dir(dirname($filename))){
 			mkdir(dirname($filename), 0755, true);
 		}
