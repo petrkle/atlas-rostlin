@@ -8,14 +8,14 @@
 <ul id="vysledky">
 </ul>
 
-<h3>Třídy</h3>
+<h3>Třída</h3>
 <ul>
 {foreach from=$tridy key=tridaid item=trida}
 <li><a href="{$tridaid}.html">{$trida.nazev}</a></li>
 {/foreach}
 </ul>
 
-<h3>Čeledi</h3>
+<h3>Čeled</h3>
 <ul>
 {foreach from=$celedi key=celedid item=celed}
 <li><a href="{$celedid}.html">{$celed.nazev}</a></li>
