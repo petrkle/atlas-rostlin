@@ -12,6 +12,6 @@
 <li><a href="{$kytka.celedid}.html">Čeleď: {$kytka.celed}</a></li>
 {/if}
 {if isset($kytka.lat)}
-<li><span>Latinský název: {$kytka.lat}</span></li>
+<li><a href="lat.html#{$kytka.id}">Latinský název: {$kytka.lat}</a></li>
 {/if}
 </ul>

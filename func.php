@@ -103,3 +103,9 @@ function sort_by_nazev($a, $b)
 	$coll = collator_create( 'cs_CZ.UTF-8' );
 	return collator_compare($coll, $a['nazev'], $b['nazev']);
 }
+
+function sort_by_lat($a, $b)
+{
+	$coll = collator_create( 'en_US.UTF-8' );
+	return collator_compare($coll, $a['lat'], $b['lat']);
+}

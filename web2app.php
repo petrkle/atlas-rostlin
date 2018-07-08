@@ -14,6 +14,7 @@ if(!is_dir(WWWIMG)){
 $kytky = array();
 $tridy = array();
 $celedi = array();
+$lat = array();
 
 foreach(glob(TMP.'/*.html') as $file){
 	$foo = get_kytka_info($file);
@@ -100,6 +101,14 @@ file_put_contents(WWW.'/about.html', $html);
 
 $html = $smarty->fetch('kytky.js.tpl');
 file_put_contents(WWW.'/kytky.js', $html);
+
+uasort($kytky, 'sort_by_lat');
+$smarty->assign('kytky', $kytky);
+$smarty->assign('title', 'Atlas rostlin');
+$html = $smarty->fetch('hlavicka.tpl');
+$html .= $smarty->fetch('lat.tpl');
+$html .= $smarty->fetch('paticka.tpl');
+file_put_contents(WWW.'/lat.html', $html);
 
 copy('templates/kytky.css', WWW.'/kytky.css');
 copy('templates/vyhledavani.js', WWW.'/vyhledavani.js');
