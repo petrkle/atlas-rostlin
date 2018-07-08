@@ -4,6 +4,7 @@ var idx = lunr(function () {
   this.field('jmeno')
   this.field('popis')
   this.field('celed')
+  this.field('lat')
 
 	this.pipeline.remove(lunr.trimmer)
 
@@ -25,8 +26,15 @@ function vyhledavani(event) {
 	var result = idx.search('*'+ event.target.value + '*', ('id', 'jmeno'));
 	var seznam = '';
 	for (var key in result) {
-			var kytka = result[key];
-		seznam = seznam + '<li><a href="' + kytka.ref + '.html">' + db[kytka.ref].jmeno + '</a></li>';
+		var kytka = result[key];
+		for (var foo in kytka.matchData.metadata) {
+			if(kytka.matchData.metadata[foo].lat){
+				seznam = seznam + '<li><a href="' + kytka.ref + '.html">' + db[kytka.ref].lat + '</a></li>';
+			}else{
+				seznam = seznam + '<li><a href="' + kytka.ref + '.html">' + db[kytka.ref].jmeno + '</a></li>';
+			}
+		break;
+		}
 	}
 	document.getElementById("vysledky").innerHTML = seznam;
 }
