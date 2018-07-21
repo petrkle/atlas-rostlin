@@ -2,7 +2,6 @@ var idx = lunr(function () {
   this.ref('id')
   this.field('id')
   this.field('jmeno')
-  this.field('popis')
   this.field('celed')
   this.field('lat')
 
