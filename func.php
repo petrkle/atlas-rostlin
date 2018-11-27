@@ -21,7 +21,22 @@ function get_detail_links($filename){
 	foreach($odkazy as $odkaz){
 		array_push($linky, $odkaz->getAttribute("href"));
 	}
-	return $linky;
+	return remove_dups($linky);
+}
+
+function remove_dups($linky){
+	$odkazy = array();
+	$kytky = array();
+
+	foreach($linky as $link){
+		$jmenokytky = preg_replace('/.*_zprava\/(.*)--.*/', '$1', $link);
+		if(!isset($kytky[$jmenokytky])){
+			array_push($odkazy, $link);
+			$kytky[$jmenokytky] = 1;
+		}
+	}
+
+	return $odkazy;
 }
 
 function savefile($url, $filename){
