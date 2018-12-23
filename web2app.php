@@ -11,6 +11,8 @@ if(!is_dir(WWWIMG)){
 	mkdir(WWWIMG);
 }
 
+$VERSION = `TERM=xterm-color gradle -q printVersionName 2>/dev/null`;
+
 $kytky = array();
 $tridy = array();
 $celedi = array();
@@ -94,6 +96,7 @@ $html .= $smarty->fetch('paticka.tpl');
 file_put_contents(WWW.'/index.html', $html);
 
 $smarty->assign('title', 'Atlas rostlin');
+$smarty->assign('VERSION', $VERSION);
 $html = $smarty->fetch('hlavicka.tpl');
 $html .= $smarty->fetch('about.tpl');
 $html .= $smarty->fetch('paticka.tpl');
@@ -113,3 +116,4 @@ file_put_contents(WWW.'/lat.html', $html);
 copy('templates/kytky.css', WWW.'/kytky.css');
 copy('templates/vyhledavani.js', WWW.'/vyhledavani.js');
 copy('templates/lunr.js', WWW.'/lunr.js');
+copy('kytka512.png', WWW.'/kytka512.png');
