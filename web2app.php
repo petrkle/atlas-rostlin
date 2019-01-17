@@ -149,4 +149,5 @@ file_put_contents(WWW.'/lat.html', $html);
 copy('templates/kytky.css', WWW.'/kytky.css');
 copy('templates/vyhledavani.js', WWW.'/vyhledavani.js');
 copy('templates/lunr.js', WWW.'/lunr.js');
+copy('templates/roboto-regular.ttf', WWW.'/roboto-regular.ttf');
 copy('kytka512.png', WWW.'/kytka512.png');
