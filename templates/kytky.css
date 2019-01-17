@@ -8,3 +8,4 @@ ul li a, ul li span{display:block;padding:1em 0;margin:0;width:100%;text-align:c
 p{text-align:left;margin:1em;}
 .hlavicka{text-decoration:none;}
 #q{margin:0;padding:0;border:0;width:100%;font-size:1.3em;line-height:2;height:2em;}
+.kvetlink{display:inline;border:0;}

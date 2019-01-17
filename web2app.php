@@ -62,6 +62,32 @@ foreach(glob(TMP.'/*.html') as $file){
 	}
 }
 
+uasort($kytky, 'sort_by_jmeno');
+
+$cislo = 0;
+$seznamkytek = array();
+foreach($kytky as $id => $kytka){
+	$seznamkytek[$cislo] = array('id' => $id,
+		'kytka' =>$kytka);
+	$cislo++;
+}
+
+$cislo = 0;
+
+foreach($kytky as $id => $foo){
+
+	if($cislo == 0){
+		$smarty->assign('prev', $seznamkytek[count($seznamkytek)-1]);
+	}else{
+		$smarty->assign('prev', $seznamkytek[$cislo-1]);
+	}
+
+	if($cislo == count($seznamkytek)-1){
+		$smarty->assign('next', $seznamkytek[0]);
+	}else{
+		$smarty->assign('next', $seznamkytek[$cislo+1]);
+	}
+
 	$smarty->assign('title', $foo['jmeno']);
 	$smarty->assign('kytka', $foo);
 	$html = $smarty->fetch('hlavicka.tpl');
@@ -149,5 +175,7 @@ file_put_contents(WWW.'/lat.html', $html);
 copy('templates/kytky.css', WWW.'/kytky.css');
 copy('templates/vyhledavani.js', WWW.'/vyhledavani.js');
 copy('templates/lunr.js', WWW.'/lunr.js');
+copy('templates/jquery-1.12.4.min.js', WWW.'/jquery.js');
+copy('templates/jquery.touchSwipe-1.6.18.min.js', WWW.'/ts.js');
 copy('templates/roboto-regular.ttf', WWW.'/roboto-regular.ttf');
 copy('kytka512.png', WWW.'/kytka512.png');
