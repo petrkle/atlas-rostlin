@@ -16,6 +16,7 @@ $VERSION = `TERM=xterm-color gradle -q printVersionName 2>/dev/null`;
 $kytky = array();
 $tridy = array();
 $celedi = array();
+$kvet = array();
 $lat = array();
 
 foreach(glob(TMP.'/*.html') as $file){
@@ -46,6 +47,21 @@ foreach(glob(TMP.'/*.html') as $file){
 		}
 	}
 
+	if(!is_file(WWWIMG.'/'.$foo['img'])){
+		copy(TMP.'/'.$foo['img'], WWWIMG.'/'.$foo['img']);
+	}
+
+	if(isset($foo['kvetmesice'])){
+		foreach($foo['kvetmesice'] as $mesic){
+			if(isset($kvet[$mesic]['clenove'])){
+				array_push($kvet[$mesic]['clenove'], $foo);
+			}else{
+				$kvet[$mesic]['clenove'] = array($foo);
+			}
+		}
+	}
+}
+
 	$smarty->assign('title', $foo['jmeno']);
 	$smarty->assign('kytka', $foo);
 	$html = $smarty->fetch('hlavicka.tpl');
@@ -53,11 +69,9 @@ foreach(glob(TMP.'/*.html') as $file){
 	$html .= $smarty->fetch('paticka.tpl');
 	file_put_contents(WWW.'/'.$foo['id'].'.html', $html);
 
-	if(!is_file(WWWIMG.'/'.$foo['img'])){
-		copy(TMP.'/'.$foo['img'], WWWIMG.'/'.$foo['img']);
-	}
-
+	$cislo++;
 }
+
 
 $smarty->assign('kytky', $kytky);
 
@@ -72,7 +86,6 @@ foreach($celedi as $id => $celed){
 	$html .= $smarty->fetch('celed.tpl');
 	$html .= $smarty->fetch('paticka.tpl');
 	file_put_contents(WWW."/$id.html", $html);
-
 }
 
 foreach($tridy as $id => $trida){
@@ -84,10 +97,30 @@ foreach($tridy as $id => $trida){
 	$html .= $smarty->fetch('trida.tpl');
 	$html .= $smarty->fetch('paticka.tpl');
 	file_put_contents(WWW."/$id.html", $html);
-
 }
 
-$smarty->assign('title', 'Atlas rostlin');
+$mesicefl = array();
+foreach(MESICE as $mesic => $nazev){
+	$kvet[$mesic]['nazev'] = prvnivelke($nazev[0]);
+	$mesicefl[$mesic] = $kvet[$mesic]['nazev'];
+	uasort($kvet[$mesic]['clenove'], 'sort_by_jmeno');
+	$smarty->assign('title', $kvet[$mesic]['nazev']);
+	$smarty->assign('mesic', $kvet[$mesic]);
+	$smarty->assign('mesicid', $mesic);
+	$html = $smarty->fetch('hlavicka.tpl');
+	$html .= $smarty->fetch('mesic.tpl');
+	$html .= $smarty->fetch('paticka.tpl');
+	file_put_contents(WWW."/$mesic.html", $html);
+}
+
+$smarty->assign('title', APPNAME);
+$smarty->assign('mesice', $mesicefl);
+$html = $smarty->fetch('hlavicka.tpl');
+$html .= $smarty->fetch('rok.tpl');
+$html .= $smarty->fetch('paticka.tpl');
+file_put_contents(WWW.'/rok.html', $html);
+
+$smarty->assign('title', APPNAME);
 $smarty->assign('celedi', $celedi);
 $smarty->assign('tridy', $tridy);
 $html = $smarty->fetch('hlavicka.tpl');
@@ -95,7 +128,7 @@ $html .= $smarty->fetch('index.tpl');
 $html .= $smarty->fetch('paticka.tpl');
 file_put_contents(WWW.'/index.html', $html);
 
-$smarty->assign('title', 'Atlas rostlin');
+$smarty->assign('title', APPNAME);
 $smarty->assign('VERSION', $VERSION);
 $html = $smarty->fetch('hlavicka.tpl');
 $html .= $smarty->fetch('about.tpl');
@@ -107,7 +140,7 @@ file_put_contents(WWW.'/kytky.js', $html);
 
 uasort($kytky, 'sort_by_lat');
 $smarty->assign('kytky', $kytky);
-$smarty->assign('title', 'Atlas rostlin');
+$smarty->assign('title', APPNAME);
 $html = $smarty->fetch('hlavicka.tpl');
 $html .= $smarty->fetch('lat.tpl');
 $html .= $smarty->fetch('paticka.tpl');

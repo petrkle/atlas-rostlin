@@ -57,6 +57,41 @@ function savefile($url, $filename){
 	}
 }
 
+function kvetlink($text){
+
+	foreach(MESICE as $mesic => $nazev){
+		$linktext = $nazev[0];
+		foreach($nazev as $foo){
+			$text = trim(preg_replace("/(^| )$foo( |$)/", " <a href=\"$mesic.html\" class=\"kvetlink\">$linktext</a> ", $text));
+		}
+	}
+
+	return $text;
+}
+
+function kvetmesice($text){
+	$mesice = array();
+	$navrat = array();
+	foreach(MESICE as $mesic => $nazev){
+		foreach($nazev as $foo){
+			if(preg_match("/(^| )$foo( |$)/", $text)){
+				array_push($mesice, $mesic);
+			}
+		}
+	}
+
+	if(count($mesice) == 2){
+		sort($mesice, SORT_NUMERIC);
+		for($foo = $mesice[0]; $foo <= $mesice[1]; $foo++){
+			array_push($navrat, $foo);
+		}
+	}else{
+		$navrat = $mesice;
+	}
+
+	return($navrat);
+}
+
 function get_kytka_info($filename){
 	$info = array();
 
@@ -80,8 +115,9 @@ function get_kytka_info($filename){
 
 	foreach($popis as $node){
 		if(preg_match('/^Doba květu: (.*)$/', trim($node->nodeValue), $m)){
-			$info['kvet'] = $m[1];
+			$info['kvet'] = kvetlink($m[1]);
 			$info['kvetid'] = asciize($m[1]);
+			$info['kvetmesice'] = kvetmesice($m[1]);
 		}
 		if(preg_match('/^Třída: (.*)$/', trim($node->nodeValue), $m)){
 			$info['trida'] = $m[1];
@@ -123,4 +159,9 @@ function sort_by_lat($a, $b)
 {
 	$coll = collator_create( 'en_US.UTF-8' );
 	return collator_compare($coll, $a['lat'], $b['lat']);
+}
+
+function prvnivelke($str) {
+    $fc = mb_strtoupper(mb_substr($str, 0, 1));
+    return $fc.mb_substr($str, 1);
 }
