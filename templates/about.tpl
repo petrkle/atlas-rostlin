@@ -1,7 +1,7 @@
 <a href="index.html" class="hlavicka"><h1>{$title}</h1></a>
 
 <p>
-V Atlasu rostlin najdete bezmála 700 květin a bylin, se kterými se můžeme setkat v naší přírodě. Jedná se o výběr originálních kreseb <b>Květoslava Híska</b>, českého malíře, grafika a ilustrátora knih. Mezi zařazenými jsou rostliny běžné i vzácné, léčivky, rostliny jedovaté, chráněné, ale i plevele.
+V Atlasu rostlin najdete {$pocet} květin a bylin, se kterými se můžeme setkat v naší přírodě. Jedná se o výběr originálních kreseb <b>Květoslava Híska</b>, českého malíře, grafika a ilustrátora knih. Mezi zařazenými jsou rostliny běžné i vzácné, léčivky, rostliny jedovaté, chráněné, ale i plevele.
 </p>
 
 <h3>Květoslav Hísek</h3>

@@ -156,6 +156,7 @@ file_put_contents(WWW.'/index.html', $html);
 
 $smarty->assign('title', APPNAME);
 $smarty->assign('VERSION', $VERSION);
+$smarty->assign('pocet', count($kytky));
 $html = $smarty->fetch('hlavicka.tpl');
 $html .= $smarty->fetch('about.tpl');
 $html .= $smarty->fetch('paticka.tpl');
