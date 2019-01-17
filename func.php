@@ -66,6 +66,8 @@ function kvetlink($text){
 		}
 	}
 
+	$text = preg_replace("/ - /", "&nbsp;-&nbsp;", $text);
+
 	return $text;
 }
 
