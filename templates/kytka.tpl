@@ -1,6 +1,4 @@
-<script src="jquery.js"></script>
-<script src="ts.js"></script>
-<a href="index.html" class="hlavicka"><h1>{$title}</h1></a>
+<h1><a href="index.html" class="hlavicka">{$title}</a></h1>
 <a href="img/{$kytka.img}"><img src="img/{$kytka.img}" style="width:100%;max-width:{$kytka.imgwidth}px;" class="obr"></a>
 <p>{$kytka.popis}</p>
 <ul>
@@ -17,29 +15,3 @@
 <li><a href="lat.html#{$kytka.id}">Latinský název: {$kytka.lat}</a></li>
 {/if}
 </ul>
-
-<script>
-{literal}
-$(document).ready(function () {
-			$(".obr").swipe( {
-        swipeLeft:function(event, direction, distance, duration, fingerCount) {
-{/literal}
-					window.location = "{$next.id}.html";
-{literal}
-        },
-        threshold: 100
-      });
-{/literal}
-{literal}
-			$(".obr").swipe( {
-        swipeRight:function(event, direction, distance, duration, fingerCount) {
-{/literal}
-					window.location = "{$prev.id}.html";
-{literal}
-        },
-        threshold: 100
-      });
-{/literal}
-
-});
-</script>

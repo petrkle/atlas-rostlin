@@ -110,7 +110,7 @@ function get_kytka_info($filename){
 	$info['imgwidth'] = $size[0];
 
 	$jmeno = $xpath->query("//div[@id='article']/h1");
-	$info['jmeno'] = $jmeno[0]->nodeValue;
+	$info['jmeno'] = preg_replace('/\(.*\)/', '', $jmeno[0]->nodeValue);
 
 	$popis = $xpath->query("//p[@class='perex']/text()[following-sibling::br]");
 	$info['popis'] = $popis[0]->nodeValue;
