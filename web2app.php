@@ -136,11 +136,12 @@ foreach(MESICE as $mesic => $nazev){
 	$html = $smarty->fetch('hlavicka.tpl');
 	$html .= $smarty->fetch('mesic.tpl');
 	$html .= $smarty->fetch('paticka.tpl');
-	file_put_contents(WWW."/$mesic.html", $html);
+	file_put_contents(WWW."/".asciize($nazev[0]).".html", $html);
 }
 
 $smarty->assign('title', APPNAME);
 $smarty->assign('mesice', $mesicefl);
+$smarty->assign('mesicefiles', MESICEASCII);
 $html = $smarty->fetch('hlavicka.tpl');
 $html .= $smarty->fetch('rok.tpl');
 $html .= $smarty->fetch('paticka.tpl');
@@ -150,6 +151,8 @@ $smarty->assign('title', APPNAME);
 $smarty->assign('celedi', $celedi);
 $smarty->assign('tridy', $tridy);
 $smarty->assign('kytky', $kytky);
+$smarty->assign('mesice', MESICE);
+$smarty->assign('mesiceascii', MESICEASCII);
 $html = $smarty->fetch('hlavicka.tpl');
 $html .= $smarty->fetch('index.tpl');
 $html .= $smarty->fetch('paticka.tpl');
@@ -158,6 +161,7 @@ file_put_contents(WWW.'/index.html', $html);
 $smarty->assign('title', APPNAME);
 $smarty->assign('VERSION', $VERSION);
 $smarty->assign('pocet', count($kytky));
+$smarty->assign('mesice', $mesicefl);
 $html = $smarty->fetch('hlavicka.tpl');
 $html .= $smarty->fetch('about.tpl');
 $html .= $smarty->fetch('paticka.tpl');

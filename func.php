@@ -62,7 +62,7 @@ function kvetlink($text){
 	foreach(MESICE as $mesic => $nazev){
 		$linktext = $nazev[0];
 		foreach($nazev as $foo){
-			$text = trim(preg_replace("/(^| )$foo( |$)/", " <a href=\"$mesic.html\" class=\"kvetlink\">$linktext</a> ", $text));
+			$text = trim(preg_replace("/(^| )$foo( |$)/", " <a href=\"".MESICEASCII[$mesic].".html\" class=\"kvetlink\">$linktext</a> ", $text));
 		}
 	}
 

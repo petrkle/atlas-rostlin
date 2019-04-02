@@ -20,6 +20,19 @@ const MESICE = array(
 	'11' => array('listopad'),
 );
 
+const MESICEASCII = array(
+	'2' => 'unor',
+	'3' => 'brezen',
+	'4' => 'duben',
+	'5' => 'kveten',
+	'6' => 'cerven',
+	'7' => 'cervenec',
+	'8' => 'srpen',
+	'9' => 'zari',
+	'10' => 'rijen',
+	'11' => 'listopad',
+);
+
 libxml_use_internal_errors(true);
 setlocale(LC_CTYPE, 'cs_CZ.UTF-8', 'Czech');
 

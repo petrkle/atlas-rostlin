@@ -2,6 +2,6 @@
 
 <ul>
 {foreach from=$mesice item=mesic key=cislo}
-<li><a href="{$cislo}.html">{$mesic}</a></li>
+<li><a href="{$mesicefiles[$cislo]}.html">{$mesic}</a></li>
 {/foreach}
 </ul>
