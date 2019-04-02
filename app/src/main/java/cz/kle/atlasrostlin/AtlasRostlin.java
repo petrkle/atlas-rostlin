@@ -14,5 +14,6 @@ public class AtlasRostlin extends CordovaActivity
             moveTaskToBack(true);
         }
         loadUrl(launchUrl);
+				appView.getView().setVerticalScrollBarEnabled(true);
     }
 }
