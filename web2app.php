@@ -175,8 +175,5 @@ file_put_contents(WWW.'/lat.html', $html);
 
 copy('templates/kytky.css', WWW.'/kytky.css');
 copy('templates/vyhledavani.js', WWW.'/vyhledavani.js');
-copy('templates/lunr.js', WWW.'/lunr.js');
-copy('templates/jquery-1.12.4.min.js', WWW.'/jquery.js');
-copy('templates/jquery.touchSwipe-1.6.18.min.js', WWW.'/ts.js');
 copy('templates/roboto-regular.ttf', WWW.'/roboto-regular.ttf');
 copy('kytka512.png', WWW.'/kytka512.png');
