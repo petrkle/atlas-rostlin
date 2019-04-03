@@ -1,7 +1,7 @@
 <h1><a href="index.html" class="hlavicka">{$title}</a></h1>
 <a href="img/{$kytka.img}"><img src="img/{$kytka.img}" style="width:100%;max-width:{$kytka.imgwidth}px;" class="obr"></a>
 <p>{$kytka.popis}</p>
-<ul>
+<ul class="kytkainfo">
 {if isset($kytka.kvet)}
 <li><span>Doba květu: {$kytka.kvet}</span></li>
 {/if}
