@@ -114,6 +114,13 @@ foreach($celedi as $id => $celed){
 	file_put_contents(WWW."/$id.html", $html);
 }
 
+$smarty->assign('title', 'Čeledi');
+$smarty->assign('celedi', $celedi);
+$html = $smarty->fetch('hlavicka.tpl');
+$html .= $smarty->fetch('celedi.tpl');
+$html .= $smarty->fetch('paticka.tpl');
+file_put_contents(WWW.'/celedi.html', $html);
+
 foreach($tridy as $id => $trida){
 	uasort($trida['clenove'], 'sort_by_jmeno');
 	$smarty->assign('title', $trida['nazev']);
@@ -124,6 +131,13 @@ foreach($tridy as $id => $trida){
 	$html .= $smarty->fetch('paticka.tpl');
 	file_put_contents(WWW."/$id.html", $html);
 }
+
+$smarty->assign('title', 'Třídy');
+$smarty->assign('tridy', $tridy);
+$html = $smarty->fetch('hlavicka.tpl');
+$html .= $smarty->fetch('tridy.tpl');
+$html .= $smarty->fetch('paticka.tpl');
+file_put_contents(WWW.'/tridy.html', $html);
 
 $mesicefl = array();
 foreach(MESICE as $mesic => $nazev){
@@ -139,7 +153,7 @@ foreach(MESICE as $mesic => $nazev){
 	file_put_contents(WWW."/".asciize($nazev[0]).".html", $html);
 }
 
-$smarty->assign('title', APPNAME);
+$smarty->assign('title', 'Rok');
 $smarty->assign('mesice', $mesicefl);
 $smarty->assign('mesicefiles', MESICEASCII);
 $html = $smarty->fetch('hlavicka.tpl');

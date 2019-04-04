@@ -1,4 +1,4 @@
-<h1><a href="index.html" class="hlavicka">{$title}</a></h1>
+<h1><a href="tridy.html" class="hlavicka">{$title}</a></h1>
 
 <ul>
 {foreach from=$trida.clenove item=kytka}
