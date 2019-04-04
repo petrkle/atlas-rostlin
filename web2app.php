@@ -180,6 +180,9 @@ file_put_contents(WWW.'/lat.html', $html);
 
 copy('templates/kytky.css', WWW.'/kytky.css');
 copy('templates/vyhledavani.js', WWW.'/vyhledavani.js');
+copy('templates/zalozky.js', WWW.'/zalozky.js');
 copy('templates/roboto-regular.ttf', WWW.'/roboto-regular.ttf');
 copy('templates/s.svg', WWW.'/s.svg');
 copy('kytka512.png', WWW.'/kytka512.png');
+copy('templates/star.svg', WWW.'/star.svg');
+copy('templates/star-bw.svg', WWW.'/star-bw.svg');
