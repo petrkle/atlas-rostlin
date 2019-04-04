@@ -26,46 +26,62 @@ for(var i=0; i<bookmarks.length; i++){
 
 }else{
 
-var hvezdicka = document.getElementsByClassName("hvezdicka");
-var hlavicka = document.getElementsByClassName("hlavicka");
-var nadp = hlavicka[0].textContent;
+	if(filename != 'about.html'){
 
-var pridano = false;
+		var nadpis = document.querySelector('h1');
+		var img = document.createElement("img");
+		img.src = "star-bw.svg";
+		img.id = "star";
 
-for(var j=0; j<bookmarks.length; j++){
-	if(filename == bookmarks[j].link){
-		hvezdicka[0].style.backgroundImage = 'url(star.svg)';
-		pridano = true;
-	}
-}
+		var hvezdicka = document.getElementById("star");
+		var hlavicka = document.getElementsByClassName("hlavicka");
+		var nadp = hlavicka[0].textContent;
 
-if(pridano){
-	hvezdicka[0].addEventListener('click', function(e) {
-		for(var foo=0; foo<bookmarks.length; foo++){
-			if(bookmarks[foo].link == filename){
-				bookmarks.splice(foo, 1);
+		var pridano = false;
+
+		for(var j=0; j<bookmarks.length; j++){
+			if(filename == bookmarks[j].link){
+				img.src = "star.svg";
+				pridano = true;
 			}
 		}
-		localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-		location.reload(true);
-	});
-}else{
-	hvezdicka[0].addEventListener('click', function(e) {
-			var zalozka = { nadpis: nadp, link: filename};
-			var pridano = false;
 
-			for(var foo=0; foo<bookmarks.length; foo++){
-				if(bookmarks[foo].filename == filename){
-					pridano = true;
+		if(pridano){
+
+		img.onclick = function() {
+				for(var foo=0; foo<bookmarks.length; foo++){
+					if(bookmarks[foo].link == filename){
+						bookmarks.splice(foo, 1);
+					}
 				}
-			}
+				localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+				location.reload(true);
+			};
 
-			if(!pridano){
-				bookmarks.push(zalozka);
+			nadpis.appendChild(img);
+
+		}else{
+
+		img.onclick = function() {
+					var zalozka = { nadpis: nadp, link: filename};
+					var pridano = false;
+
+					for(var foo=0; foo<bookmarks.length; foo++){
+						if(bookmarks[foo].filename == filename){
+							pridano = true;
+						}
+					}
+
+					if(!pridano){
+						bookmarks.push(zalozka);
+					}
+					localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+					location.reload(true);
 			}
-			localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-			location.reload(true);
-	});
-}
+			nadpis.appendChild(img);
+
+		}
+
+	}
 
 }

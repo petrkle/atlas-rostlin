@@ -8,7 +8,7 @@ ul,li{margin:0;padding:0;}
 a{color:#000;font-weight:bold;}
 h1{font-size:1.6rem;font-weight:bold;margin:0;color:#fff;padding:0;margin:0;background-color:#393;text-align:center;position:relative;}
 h1 a{color:#fff;display:block;text-decoration:none;background:#393;padding:1rem 3rem;margin:0;}
-h1 img{position:absolute;right:0;top:0;padding:1.4rem 0.5rem;background:#393;}
+h1 img#lupa{position:absolute;right:0;top:0;padding:1.4rem 0.5rem;background:#393;}
 ul li a, ul li span{display:block;padding:1em 0;margin:0;width:100%;text-align:center;background:#eee;border-bottom:solid 1px #999;color:#000;text-decoration:none;font-weight:bold;}
 p{text-align:left;margin:1em;}
 p.c{text-align:center;}
@@ -17,7 +17,7 @@ p.c{text-align:center;}
 #q{margin:0;padding:0;border:0;width:100%;font-size:1.3em;line-height:2;height:4rem;}
 #q::-webkit-search-cancel-button{position:relative;right:0.5rem;height:3rem;width:3rem;}
 .vysledek{color:#fff;background:#393;border-bottom:solid 1px #eee;}
-.hvezdicka{float:left;width:3rem;height:3rem;background:url(star-bw.svg) no-repeat 50% 50%;background-size:2rem;}
+#star{position:absolute;left:0;top:0;padding:1rem 0.5rem;background:#393;width:2rem;height:2rem;}
 .bm{display:inline-block;}
 .bm:after, h2.bookmark:after{content:'';display:inline-block;width:2em;height: 1em;background:url(star.svg) no-repeat 50% 50%;background-size:1em;}
 }

@@ -1,5 +1,4 @@
 <h1><a href="index.html" class="hlavicka">{$title}</a></h1>
-<div class="hvezdicka"></div>
 <a href="img/{$kytka.img}"><img src="img/{$kytka.img}" style="width:100%;max-width:{$kytka.imgwidth}px;" class="obr"></a>
 <p>{$kytka.popis}</p>
 <ul class="kytkainfo">
