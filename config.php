@@ -5,6 +5,7 @@ define('TMP', 'tmp');
 define('WWW', 'app/src/main/assets/www');
 define('WWWIMG', WWW.'/img');
 define('APPNAME', 'Atlas rostlin');
+define('IMGEXT', '.jpeg');
 const PISMENA = array('B','C','Č','D','F','H','J','K','L','M','N','O','P','R','Ř','S','Š','T','U','V','Z','Ž',);
 
 const MESICE = array(

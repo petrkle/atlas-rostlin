@@ -104,10 +104,11 @@ function get_kytka_info($filename){
 	$info['id'] = preg_replace('/--.*/', '', basename($filename, '.html'));
 
 	$img = $xpath->query("//meta[@name='twitter:image']");
-	$info['img'] = basename($img[0]->getAttribute("content"));
+	$info['img'] = basename($img[0]->getAttribute("content"), '.jpeg');
 
-	$size = getimagesize(TMP.'/'.$info['img']);
+	$size = getimagesize(TMP.'/'.$info['img'].IMGEXT);
 	$info['imgwidth'] = $size[0];
+	$info['imgheight'] = $size[1];
 
 	$jmeno = $xpath->query("//div[@id='article']/h1");
 	$info['jmeno'] = $jmeno[0]->nodeValue;

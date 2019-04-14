@@ -11,7 +11,7 @@ if(!is_dir(WWWIMG)){
 	mkdir(WWWIMG);
 }
 
-$VERSION = `TERM=xterm-color gradle -q printVersionName 2>/dev/null`;
+$VERSION = `git describe --tags --always --dirty`;
 
 $kytky = array();
 $tridy = array();
@@ -48,7 +48,7 @@ foreach(glob(TMP.'/*.html') as $file){
 	}
 
 	if(!is_file(WWWIMG.'/'.$foo['img'])){
-		copy(TMP.'/'.$foo['img'], WWWIMG.'/'.$foo['img']);
+		copy(TMP.'/'.$foo['img'].IMGEXT, WWWIMG.'/'.$foo['img'].IMGEXT);
 	}
 
 	if(isset($foo['kvetmesice'])){
@@ -94,6 +94,9 @@ foreach($kytky as $id => $foo){
 	$html .= $smarty->fetch('kytka.tpl');
 	$html .= $smarty->fetch('paticka.tpl');
 	file_put_contents(WWW.'/'.$foo['id'].'.html', $html);
+
+	$html = $smarty->fetch('img.tpl');
+	file_put_contents(WWW.'/img/'.$foo['img'].'.html', $html);
 
 	$cislo++;
 }
