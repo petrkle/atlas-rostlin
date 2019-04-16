@@ -15,3 +15,8 @@
 <li><a href="lat.html#{$kytka.id}">Latinský název: {$kytka.lat}</a></li>
 {/if}
 </ul>
+
+<script src="swipe.js"></script>
+<script>
+swipeonelement('obr', '{$next.id}.html', '{$prev.id}.html');
+</script>

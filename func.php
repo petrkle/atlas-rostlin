@@ -168,3 +168,13 @@ function prvnivelke($str) {
     $fc = mb_strtoupper(mb_substr($str, 0, 1));
     return $fc.mb_substr($str, 1);
 }
+
+function copyToDir($pattern, $dir)
+{
+    foreach (glob($pattern) as $file) {
+        $dest = realpath($dir) . DIRECTORY_SEPARATOR . basename($file);
+        if(is_file($file)) {
+            copy($file, $dest);
+        }
+    }
+}
