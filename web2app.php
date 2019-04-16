@@ -184,6 +184,12 @@ $html .= $smarty->fetch('about.tpl');
 $html .= $smarty->fetch('paticka.tpl');
 file_put_contents(WWW.'/about.html', $html);
 
+$smarty->assign('title', 'Květoslav Hísek');
+$html = $smarty->fetch('hlavicka.tpl');
+$html .= $smarty->fetch('kvetoslav-hisek.tpl');
+$html .= $smarty->fetch('paticka.tpl');
+file_put_contents(WWW.'/kvetoslav-hisek.html', $html);
+
 $html = $smarty->fetch('kytky.js.tpl');
 file_put_contents(WWW.'/kytky.js', $html);
 

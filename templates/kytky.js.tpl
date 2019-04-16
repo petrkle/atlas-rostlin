@@ -9,7 +9,7 @@ var kytky = {
 {$key|replace:'-':'_'}:{literal}{{/literal}c:'{$trida.nazev}'{literal}}{/literal},
 {/foreach}
 {foreach from=$mesice item=mesic name=m key=key}
-{$mesiceascii[$key]}:{literal}{{/literal}c:'{$mesic}'{literal}}{/literal}{if !$smarty.foreach.m.last},{/if}
-
+{$mesiceascii[$key]}:{literal}{{/literal}c:'{$mesic}'{literal}}{/literal},
 {/foreach}
+kvetoslav_hisek:{literal}{{/literal}c:'Květoslav Hísek'{literal}}{/literal}
 }
