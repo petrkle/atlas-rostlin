@@ -10,7 +10,8 @@
 </body>
 <style>
 {literal}
-a{display:block;text-align:center;margin:0;padding:0;}
+html,body{background:#fff;margin:0;padding:0;text-align:center;}
+a{display:block;}
 {/literal}
 </style>
 </html>
