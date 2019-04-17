@@ -6,6 +6,11 @@
 	<meta name="viewport" content="width=device-width,user-scalable=1" />
 </head>
 <body>
-<img src="{$kytka.img}{$smarty.const.IMGEXT}" width="{$kytka.imgwidth}" height="{$kytka.imgheight}">
+<a href="../{$kytka.id}.html"><img src="{$kytka.img}{$smarty.const.IMGEXT}" width="{$kytka.imgwidth}" height="{$kytka.imgheight}"></a>
 </body>
+<style>
+{literal}
+a{display:block;text-align:center;margin:0;padding:0;}
+{/literal}
+</style>
 </html>
