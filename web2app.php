@@ -202,6 +202,7 @@ $html .= $smarty->fetch('paticka.tpl');
 file_put_contents(WWW.'/lat.html', $html);
 
 copy('templates/kytky.css', WWW.'/kytky.css');
+copy('templates/kytkydark.css', WWW.'/kytkydark.css');
 copy('templates/roboto-regular.ttf', WWW.'/roboto-regular.ttf');
 copy('kytka512.png', WWW.'/kytka512.png');
 copyToDir('templates/*.js', WWW);

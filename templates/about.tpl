@@ -34,3 +34,5 @@ Příspěvek na další vývoj, opravy chyb a přidávání nových funkcí mů�
 <p class="c">Verze: {$VERSION}</p>
 
 <p class="c">Kontakt: <a href="mailto:petr@kle.cz?subject=Atlas%20rostlin">petr@kle.cz</a></p>
+
+{include file='settings.tpl'}
