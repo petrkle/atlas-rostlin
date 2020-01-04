@@ -17,7 +17,7 @@ const MESICE = array(
 	'7' => array('červenec'),
 	'8' => array('srpen', 'srpenc'),
 	'9' => array('září'),
-	'10' => array('říjen', 'říjenč'),
+	'10' => array('říjen', 'říjenč', 'říječn'),
 	'11' => array('listopad'),
 );
 
