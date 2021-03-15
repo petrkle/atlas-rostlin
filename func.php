@@ -97,8 +97,14 @@ function kvetmesice($text){
 function get_kytka_info($filename){
 	$info = array();
 
+	$html = file_get_contents($filename);
+
+	if(preg_match('/konvalinka-vonna/', $filename)){
+		$html = preg_replace('/srpen - říjen/', 'květen - červen', $html);
+	}
+
 	$dom = new DOMDocument();
-	$dom->loadHTML(file_get_contents($filename));
+	$dom->loadHTML($html);
 	$xpath = new DOMXPath($dom);
 
 	$info['id'] = preg_replace('/--.*/', '', basename($filename, '.html'));
