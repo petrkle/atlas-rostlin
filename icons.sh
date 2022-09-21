@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 RES=app/src/main/res/mipmap
 
 declare -A icon
