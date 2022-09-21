@@ -1,6 +1,5 @@
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	package="cz.kle.atlasrostlin"
 	android:installLocation="auto"
 >
 
@@ -30,6 +29,7 @@
 	android:name="AtlasRostlin"
 	android:windowSoftInputMode="adjustResize"
 	android:theme="@style/AtlasRostlin"
+	android:exported="true"
 >
 
 <intent-filter android:label="@string/app_name">
