@@ -29,7 +29,7 @@ android {
         targetSdkVersion 33
         versionCode gitVersionCode
         versionName "${gitVersionName}"
-        setProperty("archivesBaseName", "Atlas-rostlin-$versionName")
+        setProperty("archivesBaseName", "Atlas-rostlin")
     }
     signingConfigs {
         release
