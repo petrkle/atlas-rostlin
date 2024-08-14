@@ -22,6 +22,7 @@ clean:
 	gradle clean
 	rm -rf build .gradle
 	rm -rf tmp
+	cp -r ../web-archives/atlas-rostlin/ tmp
 
 fastlane:
 	bundle update
