@@ -28,7 +28,7 @@
   android:launchMode="singleTop"
   android:name="AtlasRostlin"
   android:windowSoftInputMode="adjustResize"
-  android:theme="@style/AtlasRostlin"
+  android:theme="@style/Theme.App.SplashScreen"
   android:exported="true"
 >
 
