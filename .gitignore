@@ -8,3 +8,4 @@ build
 local.properties
 fastlane/README.md
 fastlane/report.xml
+*.cache
