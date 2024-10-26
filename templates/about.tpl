@@ -14,7 +14,7 @@ Textové, zvukové a obrazové materiály Českého rozhlasu jsou chráněny aut
 </p>
 
 <p class="c">
-<a href="index.html"><img src="kytka512.png" style="width:100%;max-width:512px;"></a>
+<a href="index.html"><img src="kvetina.svg" style="width:100%;max-width:512px;"></a>
 </p>
 
 <h2>Podpoř {$title}!</h2>

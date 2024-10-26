@@ -204,6 +204,6 @@ file_put_contents(WWW.'/lat.html', $html);
 copy('templates/kytky.css', WWW.'/kytky.css');
 copy('templates/kytkydark.css', WWW.'/kytkydark.css');
 copy('templates/roboto-regular.ttf', WWW.'/roboto-regular.ttf');
-copy('kytka512.png', WWW.'/kytka512.png');
+copy('kvetina.svg', WWW.'/kvetina.svg');
 copyToDir('templates/*.js', WWW);
 copyToDir('templates/*.svg', WWW);
