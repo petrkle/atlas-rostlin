@@ -59,7 +59,7 @@ task stahni(type: Exec) {
 }
 
 task composer(type: Exec) {
-    commandLine 'composer', 'install'
+    commandLine 'composer', 'install', '--quiet'
     workingDir '..'
 }
 
