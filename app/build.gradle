@@ -21,12 +21,12 @@ android {
 
 
 android {
-    compileSdkVersion 35
+    compileSdkVersion 36
     namespace = "cz.kle.atlasrostlin"
     defaultConfig {
         applicationId "cz.kle.atlasrostlin"
         minSdkVersion 24
-        targetSdkVersion 35
+        targetSdkVersion 36
         versionCode gitVersionCode
         versionName "${gitVersionName}"
     }
