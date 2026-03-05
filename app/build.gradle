@@ -38,14 +38,13 @@ android {
         release {
             minifyEnabled false
             signingConfig = signingConfigs.release
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
 }
 
 dependencies {
     implementation 'org.apache.cordova:framework:14.0.1'
-    implementation(platform('org.jetbrains.kotlin:kotlin-bom:2.2.20'))
+    implementation(platform('org.jetbrains.kotlin:kotlin-bom:2.3.10'))
 }
 
 task generate(type: Exec, dependsOn: ['composer', 'generateIcons', 'stahni']) {
